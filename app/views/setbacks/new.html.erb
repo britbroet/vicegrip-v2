@@ -1,24 +1,35 @@
 <div class="container fadeIn">
 <h2>Add a Setback for <span class="yellowBackground"><%= @vice.vice_name %></span></h2>
     <div class="clearfix"></div>
-    <%= link_to "<< Vices", vices_path %>
     <br><br>
+<div class="form_container">
+  <%= form_for @setback do |s| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= s.label :setback_date %>
+        <div style="max-width: 200px;">
+          <%= s.date_field :setback_date, :value => Time.now.strftime('%Y-%m-%d'), :required => true %>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div>
+          <%= s.label :setback_cost %>
+        </div>
+        <div style="display: inline-block;">
+          $
+        </div>
+        <div style="display: inline-block;">
+          <%= s.number_field :setback_cost, :required => true %> 
+        </div>   
+      </div>
+      <%= s.hidden_field :vice_id, :value => @vice.id %>
+    </div>
 
-<%= form_for @setback do |s| %>
-  <div>
-    <%= s.label :setback_cost %>
-    <%= s.number_field :setback_cost, :required => true %>    
-  </div>
-  <div>
-    <%= s.label :setback_date %>
-    <%= s.date_field :setback_date, :value => Time.now.strftime('%Y-%m-%d'), :required => true %>
-  </div>
+    <button type="submit" class="btn navbar-btn btn-toolbar">Submit</button>
 
-  <%= s.hidden_field :vice_id, :value => @vice.id %>
-
-
-  <button type="submit" class="btn navbar-btn btn-toolbar">Submit</button>
-
-<% end %>
+  <% end %>
+</div>
 
 </div>
+
+
