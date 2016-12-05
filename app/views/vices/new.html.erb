@@ -1,28 +1,59 @@
 <div class="container fadeIn">
-  <h2>Create A New Vice</h2>
-  <br>
-  <%= link_to "<< Vices", vices_path %>
-  <br><br>
+  <h2>Add A New Vice</h2>
 
-  <%= form_for @vice do |v| %>
-    <div>
-      <%= v.label :vice_name %>
-      <%= v.text_field :vice_name, :required => true %>    
-    </div>
-    <div>
-      <%= v.label "VICE COST" %> <br> Add your cost per week.
-      <%= v.number_field :vice_cost, :required => true %>    
-    </div>
-    <div>
-      <%= v.label :goal_name %>
-      <%= v.text_field :goal_name, :required => true %>    
-    </div>
-    <div>
-      <%= v.label :goal_cost %>
-      <%= v.number_field :goal_cost, :required => true %>    
-    </div>
+  <div class="form_container">
+    <%= form_for @vice do |v| %>
+      <h3 class="yellowBackground form_section_title">First, enter a vice to track your spending:</h3>
+      <div class="form_section">
+        <div class="form_label">
+        <%= v.label :vice_name, "What's your vice?" %>
+        </div>
+        <em><%= v.text_field :vice_name, :required => true, placeholder: "e.g., Dining Out" %></em>
 
-    <button type="submit" class="btn navbar-btn btn-toolbar">Submit</button>
+        <div class="form_label">
+          <%= v.label :vice_cost, "About how much do you spend on this vice per week?" %> 
+        </div>
+        <div>
+          <div style="display: inline-block;">
+            $
+          </div>
+          <div style="display: inline-block; max-width: 150px;">
+            <%= v.number_field :vice_cost, :required => true %>
+          </div>
+        </div>
+      </div>
 
-  <% end %>
+      <h3 class="yellowBackground form_section_title">Second, enter a savings goal to work toward:</h3>
+      <div class="form_section">
+        <div class="form_label">
+          <%= v.label :goal_name, "What would you like to save up for?" %>
+        </div>
+        <div>
+          <em> <%= v.text_field :goal_name, :required => true, placeholder: "e.g., Trip to Hawaii"%></em>
+        </div>
+      </div>
+
+      <div class="form_section">
+        <div class="form_label">
+          <%= v.label :goal_cost, "How much (total) will you need to save to achieve this goal?" %>
+        </div>
+        <div>
+          <div style="display: inline-block;">
+            $
+          </div>
+          <div style="display: inline-block; max-width: 150px;">
+            <%= v.number_field :goal_cost, :required => true %>
+          </div>
+        </div>    
+      </div>
+
+      <div class="form_section">
+        <div style="margin: 30px 0;">
+          <button type="submit" style="font-size: 1.2em;" class="btn navbar-btn btn-toolbar">Submit</button>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
 </div>

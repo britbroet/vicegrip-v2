@@ -21,7 +21,7 @@
  }
 
  body {
-  font-family: "futura-pt",sans-serif;
+  /*font-family: "futura-pt",sans-serif;*/
   font-style: normal;
   background-color: #1B1B1B;
   color: white !important;
@@ -70,13 +70,40 @@ input {
 
 input
 {
-  border: 0 !important;
-  border-bottom: 2px solid white !important;
-  outline: 0;
-  background-color: #1B1B1B;
-  color: white;
+  /*border: 2px solid white;*/
+  /*background-color: #1B1B1B;*/
+  background-color: #fff;
+  color: black;
   width: 100%;
+  display: inline-block;
   margin-bottom: 20px;
+  padding: 5px;
+}
+
+.form_label, .form_input {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.form_label {
+  margin-top: 0px;
+}
+
+.form_text_input {
+  min-width: 100px;
+}
+
+.form_container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form_section {
+  margin: 0 50px;
+}
+
+.form_section_title {
+  margin: 30px 0;
 }
 
 .jumbotron {
