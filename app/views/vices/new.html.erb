@@ -1,0 +1,28 @@
+<div class="container fadeIn">
+  <h2>Create A New Vice</h2>
+  <br>
+  <%= link_to "<< Vices", vices_path %>
+  <br><br>
+
+  <%= form_for @vice do |v| %>
+    <div>
+      <%= v.label :vice_name %>
+      <%= v.text_field :vice_name, :required => true %>    
+    </div>
+    <div>
+      <%= v.label "VICE COST" %> <br> Add your cost per week.
+      <%= v.number_field :vice_cost, :required => true %>    
+    </div>
+    <div>
+      <%= v.label :goal_name %>
+      <%= v.text_field :goal_name, :required => true %>    
+    </div>
+    <div>
+      <%= v.label :goal_cost %>
+      <%= v.number_field :goal_cost, :required => true %>    
+    </div>
+
+    <button type="submit" class="btn navbar-btn btn-toolbar">Submit</button>
+
+  <% end %>
+</div>

@@ -13,3 +13,212 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar {
+   width: 100%;
+   height: 20px;
+   /*background-color: rgba(f,f,f,.6);*/
+ }
+
+ body {
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  background-color: #1B1B1B;
+  color: white !important;
+  font-size: 16px;
+}
+
+.btn {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background-color: black;
+  margin-right: 10px;
+  color: white !important;
+}
+
+
+h2, h1 {
+  font-weight: 700;
+  font-size: 3.8em;
+  color: #000;
+  display: inline-block !important;
+  line-height: 1.3em;
+  letter-spacing: -1.5px;
+  text-transform: capitalize;
+  color: white !important;
+}
+
+h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.btn:hover {
+  background-color: #FDB930;
+  color: black !important;
+}
+
+input {
+  color: black;
+}
+
+input
+{
+  border: 0 !important;
+  border-bottom: 2px solid white !important;
+  outline: 0;
+  background-color: #1B1B1B;
+  color: white;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.jumbotron {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 38% 20%; 
+  border-radius: 0 !important;
+  margin-bottom: 0;
+  background-color: #FDB930;
+}
+
+.numbers {
+  font-family: "Numbers Premium A", "Numbers Premium B";
+  font-style: normal;
+  font-weight: 400;
+}
+
+#progressPercent {
+  color: #000;
+  font-weight: bold;
+  height: 40px;
+}
+
+#skills {
+  background-color: #000000 ;
+  color: white;
+  padding-bottom: 500px;
+}
+
+.yellowBackground, .yellowBackgroundLink {
+  background-color: #FDB930;
+  color: #000 ;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -1.7px;
+  padding: 0 5px;
+}
+
+.yellowBackgroundLink a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.yellowBackgroundLink a {
+  text-decoration: none;
+  color: #000;
+}
+
+.yellowBackgroundLink:hover {
+  background-color: #1D9898;
+  padding: 0 5px;
+}
+
+#setbacks_container {
+  background-color: #1D9898;
+  padding: 20px 40px;
+  color: black;
+  font-weight: 700;
+  margin: 50px 0;
+  font-size: 1.5em;
+}
+
+.delete_button {
+  color: red;
+  font-weight: 700;
+  font-size: 1em;
+  padding: 0 0 1px 4px;
+}
+
+.delete_button:hover {
+  text-decoration: none;
+  color: #990000;
+}
+
+
+
+.setback_title {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.text-justify {
+  text-align-last: center;
+}
+
+a .btn {
+  text-decoration: none;
+}
+
+.progress-bar-warning {
+    background-color: #FDB930;
+}
+
+.footer {
+  background-color: black;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding: 50px;
+  margin-top: 60px;
+}
+.addVice {
+  background-color: #FDB930;
+  color: black !important;
+  border-radius: 20px;
+}
+
+.progress {
+  height: 40px !important;
+}
+
+.morphext > .animated {
+    display: inline-block;
+}
+
+p {
+  font-size: 18px;
+}
+
+.deleteButton:hover {
+  background-color: red;
+  color: #FFF !important;
+}
+
+#about {
+ background-color: #1B1B1B;
+ padding-top: 40px; 
+}
+
+.frontImage {
+  padding-bottom: 20px;
+  height: 225px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.yellowText {
+  color: #FDB930;
+}

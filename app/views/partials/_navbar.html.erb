@@ -1,0 +1,12 @@
+<div class="navbar pull-right">
+  <div class="container">
+   <% if @current_user %>
+   <a href="/"><button class="btn navbar-btn btn-toolbar">Home</button></a>
+   <a href="/vices"><button class="btn navbar-btn btn-toolbar">Vices</button></a>
+   <a href="/logout"><button type="submit" class="btn navbar-btn btn-toolbar pull-right">Log Out</button></a>
+   <% else %>
+   <a href="/login"><button class="btn navbar-btn btn-toolbar pull-right">Log In</button></a>
+   <a href="/signup"><button class="btn navbar-btn btn-toolbar pull-right">Sign Up</button></a>
+   <% end %>
+ </div>
+</div> 

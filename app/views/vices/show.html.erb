@@ -1,0 +1,109 @@
+<!-- <h3 class="text-center">Your vices</h3> -->
+<div class="container fadeIn">
+  <h2><span class="yellowBackground"><%= time_ago_in_words(@vice.created_at) %></span> ago, you decided to quit <span class="yellowBackground"> <%= @vice.vice_name %></span>.<br>
+  A habit that had been costing you about <span class="yellowBackground">$<%= @vice.vice_cost %></span> per week.</h2>
+  <hr>
+
+  <h2>So far, you've saved <span class="yellowBackground">$<%= @saved %></span>.</h2>
+
+
+  <% if 100  <= @progress %>
+    <div class="text-center" style="background-color: #1D9898; margin: 30px 0 -30px 0;">
+      <h1 class="teal text-center">YOU DID IT!</h1>
+    </div>
+
+
+  <% else %>
+    <h2>At this rate, you'll be able to reach your goal of  <span class="yellowBackground">$<%= @vice.goal_cost %></span> for <span class="yellowBackground"><%= @vice.goal_name  %></span> in <span class="yellowBackground"><%= @until %></span> days.
+  </h2>
+  <% end %>
+
+
+  <div class="progress" style="min-width: 20px; margin: 50px 0 20px 0;">
+    <% if @progress <= 30 %>
+      <% if @progress <= 0 %>
+        <% @progress = 0 %>
+      <% end %>  
+      <div class="progress-bar progress-bar-danger progress-bar-striped active progressBar" role="progressbar" style="width: <%= @progress %>%"><span id="progressPercent"><%= @progress %>%</span>
+      </div>
+        <% if @vice.setbacks.length > 0 %>
+          <div class="progress-bar progress-bar-info progress-bar-striped active progressBar" role="progressbar" style="width: <%= @couldp - @progress %>%"><span id="progressPercent"><%= @couldp %>%</span>
+          </div>
+        <% end %>   
+    <% elsif @progress <= 90 %> 
+      <div class="progress-bar progress-bar-warning progress-bar-striped active progressBar" role="progressbar" style="width: <%= @progress %>%"><span id="progressPercent"><%= @progress %>%</span>
+      </div>
+        <% if @vice.setbacks.length > 0 %>
+          <div class="progress-bar progress-bar-info progress-bar-striped active progressBar" role="progressbar" style="width: <%= @couldp - @progress %>%"><span id="progressPercent"><%= @couldp %>%</span>
+          </div>
+        <% end %> 
+    <% else %>
+      <% if @progress >= 100 %>
+        <% @progress = 100 %>
+      <% end %>  
+      <div class="progress-bar progress-bar-success progress-bar-striped active progressBar" role="progressbar" style="width: <%= @progress %>%"><span id="progressPercent"><%= @progress %>%</span>
+      </div>
+    <% end %>   
+  </div>
+
+  <div class="row" style="margin-bottom: 50px;">
+    <div class="col-xs-12" style="display: flex; align-items: center; margin-bottom: 10px;">
+      <div style="display: inline-block; margin-right: 10px; width: 20px; height: 20px; background-color: #d9534f; border-radius: 4px; border: 2px solid #fff;">
+      </div>
+      <span style="font-size: 1.3em;">Progress towards goal (w/ setbacks)</span>
+    </div>
+    <div class="col-xs-12" style="display: flex; align-items: center;">
+      <div style="display: inline-block; margin-right: 10px; width: 20px; height: 20px; background-color: #5bc0de; border-radius: 4px; border: 2px solid #fff;">
+      </div>
+      <span style="font-size: 1.3em;">Progress towards goal (w/o setbacks)</span>
+    </div>
+  </div> 
+
+
+  <hr>
+
+    <% if @vice.setbacks.length > 0 %>
+    <h2>You've had <span class="yellowBackground"><%= @vice.setbacks.count %></span> 
+    <% if @vice.setbacks.count == 1 %>
+      setback 
+    <% else %>
+      setbacks 
+    <% end %>
+    so far, costing you a total of <span class="yellowBackground">$<%= @setbackTotal %></span>.</h2>
+    <h2>It's been <span class="yellowBackground"><%= (((Time.now).to_i) - (@vice.setbacks.maximum(:setback_date)).to_i) / 1.day %></span> days since your last setback. </h2>
+
+    <div id="setbacks_container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="setback_title">Setbacks</div>
+          <% (0...@vice.setbacks.length).each do |s| %>
+          <div>
+
+          <div class="setback">
+            
+            <div style="display: inline;">
+              <span class="yellowBackground" style="margin-right: 10px;">
+              $<%= @vice.setbacks[s].setback_cost %>
+              </span> on <%= @vice.setbacks[s].setback_date.strftime("%m/%d/%Y") %>
+            </div>
+            <div style="display: inline; color: red;">
+              <%= link_to "X", setback_path(:setback_id => @vice.setbacks[s].id), method: :delete, class: 'delete_button' %>
+            </div>
+          </div>
+
+
+
+          </div>
+          <% end %>
+          <% else %>
+          <div><em>You've had no setbacks so far. That's really super. Keep it up.</em></div><br>
+          <% end %>
+      </div>
+      <div class="col-sm-6" style="display: flex; align-items: center; justify-content: flex-end;">
+        <%= link_to "Add Setback", newsetback_path(:vice_id => @vice[:id]), class: 'btn btn-toolbar navbar-btn' %>
+      </div>
+    </div>
+
+  </div>
+
+
