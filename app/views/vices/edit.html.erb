@@ -1,7 +1,6 @@
 <div class="container fadeIn">
 	<h2>Edit <span class="yellowBackground"><%= @vice.vice_name %></span></h2>
 		<div class="clearfix"></div>
-		<%= link_to "<< Vices", vices_path %>
 		<br><br>
 
 		<%= form_for @vice do |v| %>
@@ -10,7 +9,7 @@
 			<%= v.text_field :vice_name %> 
 		</div>
 		<div>
-			<%= v.label :vice_cost %>
+			<%= v.label :vice_cost %> (per week)
 			<%= v.text_field :vice_cost %> 
 		</div>
 		<div>
@@ -18,10 +17,11 @@
 			<%= v.text_field :goal_name %> 
 		</div>
 		<div>
-			<%= v.label :goal_cost %>
+			<%= v.label :goal_cost %> (total)
 			<%= v.text_field :goal_cost %> 
 		</div>
 		<button type="submit" class="btn navbar-btn btn-toolbar">Update</button>
+		<%= link_to "Cancel", vices_path, class: 'btn navbar-btn btn-toolbar' %>
 
 		<% end %>
 
